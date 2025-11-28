@@ -107,15 +107,16 @@ WHERE ListPrice > 0
 GROUP BY Color 
 ORDER BY TotalNilaiStok DESC;
 
-SELECT TOP 5 ProductID, /*dihasilin outputnya di filter ke top cepuluh*/
+SELECT TOP 5 ProductID, /*dihasilin outputnya lalu ke order by lalu di filter ke top cepuluh*/
 SUM(LineTotal) AS TotalPendapatan
 FROM Sales.SalesOrderDetail /*ngambil seluruh data tabel*/
 WHERE OrderQty >= 2 /*di filter sehingga minimal 2*/
 GROUP BY ProductID /*dikelompokn produk idny Jdi satu kelompok*/
 HAVING SUM(LineTotal) > 1000 /*di filter lagi supaya yg diatas 50000 aja*/
-ORDER BY TotalPendapatan DESC; /*diurutin dari yg besar sampe kecil*/
+ORDER BY TotalPendapatan DESC; /* setelah di hasilin outputnya diurutin dari yg besar sampe kecil*/
 
 /*maaf kak ini aku pilter diatas 1000 soalnya gaada yg 50000 :( */
+/*untuk tahapannya dari from-where-group by- having-select-orderby-top*/
 
 
 
